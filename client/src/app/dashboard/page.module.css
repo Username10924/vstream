@@ -1,0 +1,322 @@
+.container {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f8f9fa;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  background-color: #ffffff;
+  padding: 25px 15px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.sidebar h2 {
+  color: #343a40;
+  margin-bottom: 30px;
+  font-size: 1.5rem;
+  text-align: center;
+  font-weight: 600;
+}
+
+.sidebarNav {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sidebarOption {
+  padding: 12px 20px;
+  color: #495057;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  font-size: 1rem;
+  display: block;
+}
+
+.sidebarOption.active {
+  background-color: #007bff;
+  color: #ffffff;
+}
+
+.sidebarOption:hover {
+  background-color: #e9ecef;
+  color: #007bff;
+}
+
+.sidebarOption.logout {
+  margin-top: auto;
+  color: #dc3545;
+}
+
+.sidebarOption.logout:hover {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.sidebarOptionContent {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.mainContent {
+  margin-left: 250px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  background-color: #ffffff;
+  padding: 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  width: 100%;
+}
+
+.welcomeMessage {
+  font-size: 1rem;
+  color: #495057;
+  font-weight: 500;
+}
+
+.contentArea {
+  padding: 30px;
+  flex-grow: 1;
+  background-color: #f8f9fa;
+}
+
+.contentArea h1 {
+  color: #343a40;
+  margin-bottom: 20px;
+}
+
+.contentArea p {
+  color: #6c757d;
+  line-height: 1.6;
+}
+
+.successMessage {
+  color: #28a745;
+  font-size: 0.9rem;
+  margin-top: 10px;
+  font-weight: bold;
+}
+.errorMessage {
+  color: #dc3545;
+  font-size: 0.9rem;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+    box-shadow: none;
+    z-index: auto;
+    padding: 15px;
+  }
+
+  .sidebar h2 {
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+    text-align: left;
+  }
+
+  .sidebarNav {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+  }
+
+  .sidebarOption {
+    padding: 8px 15px;
+    font-size: 0.9rem;
+    flex-grow: 1;
+    text-align: center;
+  }
+
+  .sidebarOption.logout {
+    margin-top: 10px;
+    width: 100%;
+  }
+
+  .mainContent {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    transition: margin-left 0.3s ease;
+  }
+
+  .header {
+    background-color: #ffffff;
+    padding: 15px 30px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    width: calc(100% - 250px);
+    transition: width 0.3s ease;
+    left: 250px;
+  }
+
+  .contentArea {
+    padding: 20px;
+  }
+
+  .contentArea h1 {
+    font-size: 1.8rem;
+  }
+}
+
+.profileSection {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 1.5rem;
+}
+
+.profileSection h2 {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  color: #333;
+  font-weight: 600;
+}
+
+.passwordForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.inputField {
+  padding: 0.8rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: border-color 0.2s ease-in-out;
+}
+
+.inputField:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+.submitButton {
+  background-color: #007bff;
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+  align-self: flex-start;
+}
+
+.submitButton:hover {
+  background-color: #0056b3;
+}
+
+@media (max-width: 768px) {
+  .mainContent {
+    margin-left: 0;
+  }
+  .header {
+    width: 100%;
+    left: 0;
+  }
+  .profileSection {
+    padding: 1.5rem;
+  }
+
+  .profileSection h2 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+
+  .inputField {
+    padding: 0.7rem 0.9rem;
+    font-size: 0.95rem;
+  }
+
+  .submitButton {
+    padding: 0.7rem 1.2rem;
+    font-size: 0.95rem;
+    align-self: stretch;
+  }
+}
+@media (max-width: 480px) {
+  .mainContent {
+    margin-left: 0;
+  }
+  .header {
+    width: 100%;
+    left: 0;
+  }
+  .sidebarNav {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .sidebarOption {
+    text-align: left;
+  }
+
+  .header {
+    padding: 10px;
+  }
+
+  .welcomeMessage {
+    font-size: 0.9rem;
+  }
+
+  .contentArea {
+    padding: 15px;
+  }
+
+  .profileSection {
+    padding: 1rem;
+  }
+
+  .profileSection h2 {
+    font-size: 1.2rem;
+  }
+
+  .inputField {
+    font-size: 0.9rem;
+  }
+
+  .submitButton {
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+  }
+}
