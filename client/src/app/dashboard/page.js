@@ -9,6 +9,11 @@ export default function Dashboard() {
   const [errorMessage, setErrorMessage] = useState("");
   const [loading, setLoading] = useState(false);
 
+  // logout
+  const logOut = () => {
+    localStorage.removeItem("vStreamToken");
+    window.location.href = "/login";
+  };
   // get user data function
   const getUserData = async () => {
     try {
@@ -168,8 +173,8 @@ export default function Dashboard() {
               Settings
             </div>
           </Link>
-          <Link
-            href="/logout"
+          <button
+            onClick={logOut}
             className={`${styles.sidebarOption} ${styles.logout}`}
           >
             <div className={styles.sidebarOptionContent}>
@@ -184,12 +189,12 @@ export default function Dashboard() {
               </svg>
               Logout
             </div>
-          </Link>
+          </button>
         </nav>
       </div>
       <div className={styles.mainContent}>
         <header className={styles.header}>
-          <span className={styles.welcomeMessage}>Welcome, {userName}!</span>
+          <span className={styles.welcomeMessage}>Welcome, {userName} ✨</span>
         </header>
         <div className={styles.contentArea}>
           {/* Main dashboard content */}

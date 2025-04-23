@@ -10,6 +10,11 @@ export default function Dashboard() {
   const [uploadStatus, setUploadStatus] = useState(false);
   const [videoName, setVideoName] = useState("");
 
+  // logout
+  const logOut = () => {
+    localStorage.removeItem("vStreamToken");
+    window.location.href = "/login";
+  };
   // get user data function
   const getUserData = async () => {
     try {
@@ -85,8 +90,8 @@ export default function Dashboard() {
       setSuccessMessage(result.message);
       setErrorMessage("");
       setUploadStatus("Upload successful!");
-      setSelectedFile(null); // Clear the file input
-      setVideoName(""); // Clear the video name input
+      setSelectedFile(null);
+      setVideoName("");
     } catch (error) {
       console.error("Error uploading file:", error);
       setErrorMessage(error.message);
@@ -171,8 +176,8 @@ export default function Dashboard() {
               Settings
             </div>
           </Link>
-          <Link
-            href="/logout"
+          <button
+            onClick={logOut}
             className={`${styles.sidebarOption} ${styles.logout}`}
           >
             <div className={styles.sidebarOptionContent}>
@@ -187,12 +192,12 @@ export default function Dashboard() {
               </svg>
               Logout
             </div>
-          </Link>
+          </button>
         </nav>
       </div>
       <div className={styles.mainContent}>
         <header className={styles.header}>
-          <span className={styles.welcomeMessage}>Welcome, {userName}!</span>
+          <span className={styles.welcomeMessage}>Welcome, {userName} ✨</span>
         </header>
         <div className={styles.contentArea}>
           {/* Main dashboard content */}
@@ -212,24 +217,26 @@ export default function Dashboard() {
               {selectedFile ? selectedFile.name : "Choose Video File"}
             </label>
             <input
-              id="fileInput" // Added id for potential clearing
+              id="fileInput"
               type="file"
-              accept="video/*" // Accept only video files
+              accept="video/*"
               onChange={handleFileChange}
-              className={styles.fileInput} // Hide the default input
+              className={styles.fileInput}
             />
             <input
               id="videoName"
               type="text"
               placeholder="Video Name"
-              value={videoName} // Control the input value
+              value={videoName}
               onChange={(e) => setVideoName(e.target.value)}
-              className={styles.textInput} // Add class for styling
+              className={styles.textInput}
             />
             <button
               onClick={handleUpload}
-              disabled={!selectedFile || uploadStatus === "Uploading..."}
-              className={styles.submitButton} // Assuming you have a button style
+              disabled={
+                !selectedFile || !videoName || uploadStatus === "Uploading..."
+              }
+              className={styles.submitButton}
             >
               {uploadStatus === "Uploading..."
                 ? "Uploading..."

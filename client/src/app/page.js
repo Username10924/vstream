@@ -1,94 +1,82 @@
+"use client";
+import Link from "next/link";
 import Image from "next/image";
 import styles from "./page.module.css";
+import dashboardImage from "../../public/dashboard.png";
+import uploadIcon from "../../public/upload.png";
+import shieldIcon from "../../public/shield.png";
+import optionsIcon from "../../public/options.png";
 
 export default function Home() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>src/app/page.js</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <div className={styles.wrapper}>
+      {/* Header */}
+      <header className={styles.header}>
+        <div className={styles.logo}>vStream 🎬</div>
+        <nav className={styles.nav}>
+          <Link href="/login" className={styles.navButton}>
+            Login
+          </Link>
+          <Link
+            href="/register"
+            className={`${styles.navButton} ${styles.register}`}
+          >
+            Sign Up
+          </Link>
+        </nav>
+      </header>
 
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
-        </div>
+      {/* Hero Section */}
+      <main className={styles.hero}>
+        <h1 className={styles.title}>Stream Smarter with vStream</h1>
+        <p className={styles.subtitle}>
+          Organize, upload, and enjoy your videos — built for simplicity, speed,
+          and style.
+        </p>
       </main>
+
+      {/* Features */}
+      <h2 className={styles.sectionTitle}>Why Choose vStream?</h2>
+      <section className={styles.features}>
+        <div className={styles.feature}>
+          <Image src={uploadIcon} alt="Upload Icon" width={48} height={48} />
+          <h3>Easy Uploads</h3>
+          <p>
+            Drag and drop your videos or upload in one click. Simple, fast, and
+            secure.
+          </p>
+        </div>
+        <div className={styles.feature}>
+          <Image src={optionsIcon} alt="Profile Icon" width={48} height={48} />
+          <h3>Personal Dashboard</h3>
+          <p>
+            Manage your content and settings in a clean, user-friendly
+            interface.
+          </p>
+        </div>
+        <div className={styles.feature}>
+          <Image src={shieldIcon} alt="Security Icon" width={48} height={48} />
+          <h3>Private & Secure</h3>
+          <p>
+            Your videos are yours. End-to-end encrypted and private by default.
+          </p>
+        </div>
+      </section>
+
+      {/* Screenshot Section */}
+      <section className={styles.screenshot}>
+        <Image
+          src={dashboardImage}
+          alt="vStream Dashboard Preview"
+          width={800}
+          height={450}
+          className={styles.screenshotImage}
+        />
+      </section>
+
+      {/* Footer */}
       <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+        <p>&copy; 2025 vStream. All rights reserved.</p>
       </footer>
     </div>
   );

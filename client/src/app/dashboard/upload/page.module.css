@@ -180,6 +180,17 @@
   font-weight: bold;
 }
 
+.logout {
+  /* reset */
+  background: none;
+  border: none;
+  color: inherit;
+}
+
+.logout:hover {
+  cursor: pointer;
+}
+
 @media (max-width: 768px) {
   .sidebar {
     width: 100%;

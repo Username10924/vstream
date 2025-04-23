@@ -32,7 +32,7 @@ try {
     }
     $userId = $decoded->data->username;
 
-    $stmt = $pdo->prepare("SELECT username FROM users WHERE username = :id");
+    $stmt = $pdo->prepare("SELECT username, is_admin FROM users WHERE username = :id");
     $stmt->bindParam(':id', $userId);
     $stmt->execute();
 
