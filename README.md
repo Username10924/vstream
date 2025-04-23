@@ -23,7 +23,7 @@ bun install
 ```
 
 ## Deployment
-Modify the backend api end-point on
+Modify the backend api end-points on:
 
 - login page
 - register page
